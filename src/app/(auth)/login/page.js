@@ -18,6 +18,8 @@ export default function Login() {
       // Redireccionar según el rol del usuario
       if (result.user.role === 'admin') {
         router.push('/admin/products');
+      } else if (result.user.role === 'buyer'){
+        router.push('/cart');
       } else {
         router.push('/products');
       }
@@ -39,7 +41,7 @@ export default function Login() {
             <input
               id="email"
               type="email"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -52,7 +54,7 @@ export default function Login() {
             <input
               id="password"
               type="password"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

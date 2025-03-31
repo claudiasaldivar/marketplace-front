@@ -36,6 +36,8 @@ export default function Register() {
       // Redirección según el rol
       if (result?.user?.role === 'admin') {
         router.push('/admin/products');
+      } else if (result.user.role === 'buyer'){
+        router.push('/cart');
       } else {
         router.push('/products');
       }

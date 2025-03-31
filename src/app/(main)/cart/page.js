@@ -28,7 +28,7 @@ export default function Cart() {
     const loadCart = async () => {
       try {
         const data = await api.getCart();
-        setCart(data.items);
+        setCart(data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -86,7 +86,7 @@ export default function Cart() {
         
         {error && <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">{error}</div>}
 
-        {cart && cart.items.length === 0 ? (
+        {cart?.items.length === 0 ? (
           <div className="bg-white p-8 rounded-lg shadow text-center">
             <p className="text-gray-500">Tu carrito está vacío</p>
             <button
